@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-5 mt-5 ">
+        <h1>Edit User</h1>
+        <div [ngClass]="className" role="alert">
+          {{message}}
+        </div>
+        <br>
+        <form [formGroup]="editForm" (ngSubmit)="update()">
+          <div class="form-group">
+
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username" formControlName="userName">
+              </mat-form-field>
+            </div>
+
+
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+                <mat-label>Mobile</mat-label>
+                <input matInput placeholder="Mobile" type="number" formControlName="mobile">
+              </mat-form-field>
+            </div>
+
+          </div>
+          <br>
+          <button style="margin-right: 20px;" type="submit" class="btn btn-danger"> Update</button>
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-5 mt-5 ">
+        <h1>welcome</h1>
+        <div [ngClass]="className" role="alert">
+          {{message}}
+        </div>
+        <br>
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <div class="form-group">
+
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username" formControlName="userName">
+                <mat-error *ngIf="getError('userName', 'required')">Username is required</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" type="email" formControlName="email">
+                <mat-error *ngIf="getError('email', 'required')">Email is required</mat-error>
+                <mat-error *ngIf="getError('email', 'email')">Invalid email format</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+                <mat-label>Mobile</mat-label>
+                <input matInput placeholder="Mobile" type="tel" formControlName="mobile">
+                <mat-error *ngIf="getError('mobile', 'required')">Mobile number is required</mat-error>
+                <mat-error *ngIf="getError('mobile', 'pattern')">Only numbers are allowed</mat-error>
+                <mat-error *ngIf="getError('mobile', 'minlength')">Mobile number should have at least 10
+                  digits</mat-error>
+                <mat-error *ngIf="getError('mobile', 'maxlength')">Mobile number should have at most 10
+                  digits</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                  <mat-option *ngFor="let gender of genderValues" [value]="gender.value">
+                    {{gender.name}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="getError('gender', 'required')">Gender is required</mat-error>
+              </mat-form-field>
+            </div>
+
+
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" type="password" formControlName="password">
+                <mat-error *ngIf="getError('password', 'required')">Password is required</mat-error>
+                <mat-error *ngIf="getError('password', 'minlength')">Password should have at least 8
+                  characters</mat-error>
+              </mat-form-field>
+            </div>
+
+
+
+
+
+          </div>
+          <br>
+          <button style="margin-right: 20px;" type="submit" class="btn btn-danger"> Sign in</button>
+
+          <a routerLink="/login"> Already have account ? login</a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

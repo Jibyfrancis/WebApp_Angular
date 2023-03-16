@@ -1,0 +1,10 @@
+.allUsers{
+  width: 50%;
+  height: auto;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: rgb(194, 232, 241);
+}
